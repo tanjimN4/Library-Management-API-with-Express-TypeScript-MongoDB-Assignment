@@ -1,7 +1,7 @@
 export interface IBook {
     title: string;
     author: string;
-    genre: 'Fiction' | 'Non-Fiction' | 'Science' | 'History' | 'Biography' | 'Fantasy';
+    genre: 'FICTION' | 'NON_FICTION' | 'SCIENCE' | 'HISTORY' | 'BIOGRAPHY' | 'FANTASY';
     isbn: string;
     description?: string;
     copies: number;

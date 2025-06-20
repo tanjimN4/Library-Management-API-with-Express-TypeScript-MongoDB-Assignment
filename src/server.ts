@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 import app from "./app";
 
-const uri = "mongodb+srv://mongoose:yGUZ.gTgW9mHcx7@cluster0.hblj92w.mongodb.net/library?retryWrites=true&w=majority&appName=Cluster0";
+
+const url = process.env.MONGODB_URL || 'mongodb://localhost:27017/library_management';
 
 const port = 5000;
 const server = async () => {
     try {
-        await mongoose.connect(uri);
+        await mongoose.connect(url);
         console.log('Database Connected Successfully');
 
         app.listen(port, () => {

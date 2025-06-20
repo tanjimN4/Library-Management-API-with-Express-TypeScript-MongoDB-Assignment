@@ -1,7 +1,7 @@
-import { Schema } from "mongoose";
+import { model, Schema } from "mongoose";
 import { IBook } from "../interfaces/book.interface";
 
-const books = new Schema<IBook>({
+const booksSchema = new Schema<IBook>({
     title: {
         type: String,
         required: true,
@@ -14,8 +14,9 @@ const books = new Schema<IBook>({
     },
     genre:{
         type: String,
+        uppercase: true,
         required: true,
-        enum : ['Fiction', 'Non-Fiction', 'Science', 'History', 'Biography', 'Fantasy'],
+        enum : ['FICTION', 'NON_FICTION', 'SCIENCE', 'HISTORY', 'BIOGRAPHY', 'FANTASY'],
         trim: true
     },
     isbn: {
@@ -31,10 +32,15 @@ const books = new Schema<IBook>({
     copies: {
         type: Number,
         required: true,
-        min: 0
+        min: [0,'Copies must be a positive number']
     },
     available:{
         type: Boolean,
         default: true
     }
+},{
+     timestamps: true,
+    versionKey: false
 })
+
+export const book=model<IBook>('Book', booksSchema);

@@ -43,4 +43,15 @@ const booksSchema = new Schema<IBook>({
     versionKey: false
 })
 
+// booksSchema.pre('save', function(next) {
+//     if (this.copies > 0) {
+//         this.available = true;  
+//     } else {
+//         this.available = false;
+//     }
+//     next();
+// });
+
+
+
 export const book=model<IBook>('Book', booksSchema);

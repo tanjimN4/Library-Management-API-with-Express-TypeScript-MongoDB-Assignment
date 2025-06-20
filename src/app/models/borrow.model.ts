@@ -21,4 +21,8 @@ const borrowSchema = new Schema<IBorrow>({
     versionKey: false
 });
 
+borrowSchema.methods.isOverdue = function() {
+    return new Date() > this.dueDate;
+}
+
 export const borrow = model<IBorrow>('Borrow', borrowSchema);

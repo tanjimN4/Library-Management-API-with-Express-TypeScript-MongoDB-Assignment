@@ -4,7 +4,13 @@ export const bookRouters = express.Router();
 
 bookRouters.get('/', async (req: Request, res: Response, next) => {
     try {
-        const books = await book.find()
+        const {filter,sort,sortBy='createdAt' ,limit = 10} = req.query;
+        const query: any = {};
+        if (filter) {
+            query.genre = filter;
+        }
+
+        const books = await book.find(query).sort({ [String(sortBy)]: String(sort) === 'desc' ? 1 : -1 }).limit(Number(limit));
         res.json({
             success: true,
             message: 'Books retrieved successfully',
@@ -37,6 +43,7 @@ bookRouters.post('/', async (req: Request, res: Response, next) => {
         next(error);
     }
 });
+
 bookRouters.patch('/:bookId', async (req: Request, res: Response,next) => {
     const bookId = req.params.bookId;
     try {

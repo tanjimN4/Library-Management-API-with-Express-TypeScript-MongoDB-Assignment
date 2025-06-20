@@ -1,13 +1,14 @@
 import mongoose from "mongoose";
 import app from "./app";
+import dotenv from 'dotenv';
+dotenv.config();
 
-
-const url = process.env.MONGODB_URL || 'mongodb://localhost:27017/library_management';
+const url = process.env.MONGODB_URL;
 
 const port = 5000;
 const server = async () => {
     try {
-        await mongoose.connect(url);
+        await mongoose.connect(url as string);
         console.log('Database Connected Successfully');
 
         app.listen(port, () => {

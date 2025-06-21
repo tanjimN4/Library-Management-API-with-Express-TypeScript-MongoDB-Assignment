@@ -12,6 +12,9 @@ app.use(express_1.default.json());
 // Define routes
 app.use('/api/books', book_controller_1.bookRouters);
 app.use('/api/borrow', borrow_controller_1.borrowRouter);
+app.get('/', (req, res) => {
+    res.send('Library Management API with Express, TypeScript & MongoDB');
+});
 //404 handler
 app.use((req, res, next) => {
     res.status(404).json({
@@ -22,7 +25,4 @@ app.use((req, res, next) => {
 });
 // Error handling middleware
 app.use(allErrorHandel_1.default);
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
 exports.default = app;

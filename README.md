@@ -210,3 +210,24 @@ GET /api/borrow
 ```
 
 ---
+
+## 🌐 Live API
+
+[https://assignment-library-management-api.vercel.app/](https://assignment-library-management-api.vercel.app/)
+
+## 🎥 Video Demo
+
+[Watch Video Explanation](https://drive.google.com/file/d/12x_txhzTnTPHtL5-QRvYMquATkOKsYmD/view?usp=sharing)
+
+## ✅ Submission Checklist
+
+- [x] All required endpoints implemented
+- [x] Book and Borrow models created with validations
+- [x] Static or instance method used for availability logic
+- [x] Mongoose pre/post middleware used
+- [x] Aggregation used for borrow summary
+- [x] Error handling implemented
+- [x] README with setup instructions and API docs
+- [x] Live deployment link included
+- [x] Video explanation added
+
